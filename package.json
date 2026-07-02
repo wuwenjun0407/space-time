@@ -1,0 +1,19 @@
+{
+  "name": "spacetime-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "时空万象 · 家庭私人影像空间 — Monorepo (backend + admin + app)",
+  "workspaces": [
+    "admin"
+  ],
+  "scripts": {
+    "dev:admin": "npm --workspace admin run dev",
+    "build:admin": "npm --workspace admin run build",
+    "start:admin": "npm --workspace admin run start",
+    "lint:admin": "npm --workspace admin run lint"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "license": "UNLICENSED"
+}
