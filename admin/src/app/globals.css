@@ -59,6 +59,182 @@ body {
 	transition: background-color 9999s ease-out 0s;
 }
 
+/* ══════════════════════════════════════════════════════
+   Dashboard 亮色主题 — 时空万象 紫/靛/琥珀 宇宙调色盘
+   ══════════════════════════════════════════════════════ */
+.st-light-mode {
+	color-scheme: light;
+
+	/* 语义色值 */
+	--dash-bg: #f5f0ff;
+	--dash-card: #ffffff;
+	--dash-sidebar: #ffffff;
+	--dash-primary: #7c3aed;
+	--dash-primary-hover: #6d28d9;
+	--dash-primary-light: #ede9fe;
+	--dash-accent-gold: #d97706;
+	--dash-accent-cyan: #0ea5e9;
+	--dash-border: rgba(124, 58, 237, 0.12);
+	--dash-text: #1e1b4b;
+	--dash-text-2: #4c4571;
+	--dash-text-muted: #8b83b4;
+	--dash-shadow: rgba(109, 40, 217, 0.08);
+	--dash-shadow-lg: rgba(109, 40, 217, 0.15);
+
+	/* 覆盖 shadcn/tailwind CSS 变量以启用亮色模式 */
+	--background: #f5f0ff;
+	--foreground: #1e1b4b;
+	--card: #ffffff;
+	--card-foreground: #1e1b4b;
+	--popover: #ffffff;
+	--popover-foreground: #1e1b4b;
+	--primary: #7c3aed;
+	--primary-foreground: #ffffff;
+	--secondary: #ede9fe;
+	--secondary-foreground: #6d28d9;
+	--muted: #f3f0fc;
+	--muted-foreground: #6b7280;
+	--accent: #fef3c7;
+	--accent-foreground: #92400e;
+	--destructive: #ef4444;
+	--destructive-foreground: #ffffff;
+	--border: rgba(124, 58, 237, 0.12);
+	--input: rgba(124, 58, 237, 0.12);
+	--ring: #7c3aed;
+	--radius: 0.75rem;
+
+	/* 侧边栏专用变量 */
+	--sidebar: #ffffff;
+	--sidebar-foreground: #1e1b4b;
+	--sidebar-primary: #7c3aed;
+	--sidebar-primary-foreground: #ffffff;
+	--sidebar-accent: #f3f0ff;
+	--sidebar-accent-foreground: #6d28d9;
+	--sidebar-border: rgba(124, 58, 237, 0.1);
+	--sidebar-ring: #7c3aed;
+}
+
+/* 主背景：柔和的多层径向渐变，营造宇宙星云氛围 */
+.st-dash-bg {
+	background:
+		radial-gradient(
+			ellipse 80% 50% at 5% 5%,
+			rgba(124, 58, 237, 0.07) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			ellipse 60% 70% at 95% 95%,
+			rgba(99, 102, 241, 0.07) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			ellipse 40% 40% at 55% 90%,
+			rgba(217, 119, 6, 0.04) 0%,
+			transparent 55%
+		),
+		#f5f0ff;
+	min-height: 100vh;
+}
+
+/* 侧边栏激活项左侧高亮条 */
+.st-nav-active {
+	background: linear-gradient(
+		90deg,
+		rgba(124, 58, 237, 0.1) 0%,
+		rgba(99, 102, 241, 0.05) 100%
+	);
+}
+
+/* 悬浮卡片效果 */
+.st-card-hover {
+	transition:
+		transform 0.22s ease,
+		box-shadow 0.22s ease;
+}
+.st-card-hover:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 28px rgba(124, 58, 237, 0.12);
+}
+
+/* 数据卡片渐变背景 */
+.st-stat-purple {
+	background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+}
+.st-stat-amber {
+	background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+}
+.st-stat-cyan {
+	background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+}
+.st-stat-teal {
+	background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+}
+
+/* 渐变文字工具类 */
+.st-gradient-text {
+	background: linear-gradient(135deg, #7c3aed 0%, #6366f1 60%, #0ea5e9 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* 闪光加载效果 */
+@keyframes st-shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+.st-shimmer {
+	background: linear-gradient(90deg, #ede9fe 25%, #ddd6fe 50%, #ede9fe 75%);
+	background-size: 200% 100%;
+	animation: st-shimmer 1.5s ease infinite;
+}
+
+/* 从下方滑入 */
+@keyframes st-slide-up {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.st-slide-up {
+	animation: st-slide-up 0.22s ease forwards;
+}
+
+/* 侧边栏过渡 */
+.st-sidebar-transition {
+	transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 覆盖 antd 在亮色 Dashboard 内的基础色 */
+.st-light-mode .ant-card {
+	background: #ffffff;
+	border-color: rgba(124, 58, 237, 0.1);
+	box-shadow: 0 2px 12px rgba(109, 40, 217, 0.06);
+}
+.st-light-mode .ant-card-head {
+	border-bottom-color: rgba(124, 58, 237, 0.08);
+	color: #1e1b4b;
+}
+.st-light-mode .ant-table {
+	background: #ffffff;
+}
+.st-light-mode .ant-table-thead > tr > th {
+	background: #f5f0ff;
+	color: #4c4571;
+	border-bottom-color: rgba(124, 58, 237, 0.1);
+}
+.st-light-mode .ant-table-tbody > tr:hover > td {
+	background: #faf8ff;
+}
+
 @layer base {
 	.theme {
 		--font-heading: var(--font-sans);
